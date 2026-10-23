@@ -1,0 +1,9 @@
+# Static site: no build step. Netlify publishes the repository root.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"

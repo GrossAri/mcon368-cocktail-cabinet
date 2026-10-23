@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cocktail Cabinet</title>
+  <meta name="description" content="Classic arcade games where you can flip roles with the computer.">
+  <link rel="stylesheet" href="css/cabinet.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <h1><span aria-hidden="true">🍸</span> Cocktail Cabinet</h1>
+    <p>Classic arcade games &mdash; with a twist. Play the usual side, or <strong>flip roles</strong> with the computer.</p>
+  </header>
+
+  <main id="main">
+    <section id="menu" aria-labelledby="menu-title">
+      <h2 id="menu-title">Choose a game</h2>
+      <ul id="game-list" class="cards"></ul>
+
+      <div id="details" class="panel" aria-live="polite">
+        <h3 id="d-title">Pick a game to see how it works</h3>
+        <fieldset id="mode-set" class="modes" disabled>
+          <legend>Who plays which side?</legend>
+          <label><input type="radio" name="mode" value="normal" checked> <span><b>Normal</b> &mdash; you play the classic role</span></label>
+          <label><input type="radio" name="mode" value="flipped"> <span><b>Flipped</b> &mdash; swap: the computer plays the classic role</span></label>
+        </fieldset>
+        <p id="d-rules" class="rules"></p>
+        <ul id="d-controls" class="controls-list"></ul>
+        <button id="play" class="btn primary" type="button" disabled>Play</button>
+      </div>
+    </section>
+
+    <section id="stage" hidden aria-labelledby="stage-title">
+      <div class="stage-bar">
+        <h2 id="stage-title"></h2>
+        <div class="stage-buttons">
+          <button id="b-pause" class="btn" type="button">Pause (P)</button>
+          <button id="b-restart" class="btn" type="button">Restart (R)</button>
+          <button id="b-flip" class="btn" type="button">Flip roles</button>
+          <button id="b-menu" class="btn" type="button">Menu (Esc)</button>
+        </div>
+      </div>
+      <ul id="hud" class="hud" aria-label="Game status"></ul>
+      <div class="screen">
+        <canvas id="canvas" width="640" height="480" tabindex="0" role="img"
+                aria-label="Game screen. Rules and controls are listed below the game."></canvas>
+        <div id="overlay" class="overlay" hidden>
+          <div class="overlay-box" role="dialog" aria-modal="false" aria-labelledby="o-title">
+            <h3 id="o-title"></h3>
+            <p id="o-text"></p>
+            <div class="overlay-buttons" id="o-buttons"></div>
+          </div>
+        </div>
+      </div>
+      <div id="touch" class="touch" aria-label="Touch controls">
+        <div class="dpad">
+          <button type="button" data-key="ArrowUp" aria-label="Up">▲</button>
+          <button type="button" data-key="ArrowLeft" aria-label="Left">◀</button>
+          <button type="button" data-key="ArrowDown" aria-label="Down">▼</button>
+          <button type="button" data-key="ArrowRight" aria-label="Right">▶</button>
+        </div>
+        <button type="button" class="act" data-key="Space" aria-label="Action">Action</button>
+      </div>
+      <div class="panel" id="stage-help"></div>
+      <p id="live" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>Wave 1 foundation &middot; Imitation and the Wave 2 original game plug in through <code>js/registry.js</code>.</footer>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
