@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Echo Heist</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 10 10%27%3E%3Ctext y=%278.5%27 font-size=%278%27%3E%F0%9F%92%8E%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="echo-heist" class="eh">
+    <header class="eh-head">
+      <h1>Echo&nbsp;Heist</h1>
+      <div class="eh-audio">
+        <button id="eh-mute" type="button" aria-label="Toggle sound (M)" title="Sound on/off (M)">🔊</button>
+        <input id="eh-vol" type="range" min="0" max="100" value="60" aria-label="Volume">
+      </div>
+    </header>
+
+    <section class="eh-hud" aria-live="polite">
+      <div><span class="k">Vault</span><span id="eh-vault" class="v">1</span></div>
+      <div><span class="k">Round</span><span id="eh-round" class="v">1/5</span></div>
+      <div><span class="k">Gems</span><span id="eh-gems" class="v">0/3</span></div>
+      <div><span class="k">Echoes</span><span id="eh-echoes" class="v">0</span></div>
+      <div><span class="k">Score</span><span id="eh-score" class="v">0</span></div>
+      <div><span class="k">Best</span><span id="eh-best" class="v">0</span></div>
+    </section>
+
+    <div class="eh-timer" aria-hidden="true"><div id="eh-timerfill"></div><span id="eh-timertext"></span></div>
+
+    <div class="eh-stage">
+      <canvas id="eh-canvas" width="720" height="528" tabindex="0" aria-label="Echo Heist game board"></canvas>
+      <div id="eh-hint" class="eh-hint" hidden></div>
+      <div id="eh-overlay" class="eh-overlay">
+        <div class="eh-card">
+          <h2 id="eh-ov-title"></h2>
+          <div id="eh-ov-body"></div>
+          <button id="eh-ov-btn" type="button" class="primary"></button>
+          <button id="eh-ov-btn2" type="button" class="secondary" hidden></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="eh-bar">
+      <button id="eh-pause" type="button">Pause (P)</button>
+      <button id="eh-restart" type="button">Restart (R)</button>
+      <span class="eh-keys">Move: <kbd>←↑↓→</kbd> / <kbd>WASD</kbd> · Wait: <kbd>Space</kbd></span>
+    </div>
+
+    <div class="eh-pad" aria-label="Touch controls">
+      <button data-dir="up" aria-label="Up">▲</button>
+      <button data-dir="left" aria-label="Left">◀</button>
+      <button data-dir="wait" aria-label="Wait">●</button>
+      <button data-dir="right" aria-label="Right">▶</button>
+      <button data-dir="down" aria-label="Down">▼</button>
+    </div>
+  </main>
+  <script src="core.js"></script>
+  <script src="audio.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
