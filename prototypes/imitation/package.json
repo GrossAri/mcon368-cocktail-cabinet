@@ -1,0 +1,10 @@
+{
+  "name": "imitation-prototype",
+  "private": true,
+  "description": "Imitation game prototype for the Cocktail Cabinet (static, no backend).",
+  "scripts": {
+    "test:unit": "node --test tests/unit.test.js",
+    "test:e2e": "node tests/e2e.js",
+    "test": "npm run test:unit && npm run test:e2e"
+  }
+}

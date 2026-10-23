@@ -1,0 +1,32 @@
+/* All rules are scoped under .imi so the stylesheet can be dropped into the shared cabinet. */
+.imi-standalone { margin: 0; background: #14101c; min-height: 100vh; }
+.imi { --bg:#1d1729; --panel:#2a2140; --ink:#f3eefc; --muted:#a99fc4; --accent:#ff8fb1; --accent2:#7ee0c3; --bad:#ff6b6b;
+  font: 16px/1.45 system-ui, sans-serif; color: var(--ink); background: var(--bg); max-width: 760px; margin: 0 auto; padding: 20px 16px 40px; box-sizing: border-box; }
+.imi * { box-sizing: border-box; }
+.imi h1 { margin: 0 0 4px; letter-spacing: .04em; }
+.imi h2 { margin: 18px 0 8px; font-size: 1.1rem; }
+.imi p { margin: 6px 0 12px; }
+.imi .muted { color: var(--muted); font-size: .9rem; }
+.imi .panel { background: var(--panel); border-radius: 12px; padding: 16px; margin: 12px 0; }
+.imi .hidden { display: none !important; }
+.imi button { font: inherit; color: #1d1729; background: var(--accent); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; margin: 4px 6px 4px 0; }
+.imi button.secondary { background: transparent; color: var(--ink); border: 1px solid var(--muted); }
+.imi button:disabled { opacity: .45; cursor: not-allowed; }
+.imi button:focus-visible, .imi textarea:focus-visible, .imi input:focus-visible { outline: 3px solid var(--accent2); outline-offset: 2px; }
+.imi textarea, .imi input[type=text] { width: 100%; font: .8rem ui-monospace, monospace; color: var(--ink); background: #170f24; border: 1px solid #4a3d6b; border-radius: 8px; padding: 8px; }
+.imi textarea { min-height: 84px; resize: vertical; }
+.imi .banner { border-left: 4px solid var(--bad); background: #3a1f2b; padding: 10px 12px; border-radius: 6px; margin: 10px 0; }
+.imi .banner.info { border-color: var(--accent2); background: #17332f; }
+.imi .chat { height: 300px; overflow-y: auto; background: #170f24; border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+.imi .bubble { max-width: 80%; padding: 8px 12px; border-radius: 14px; overflow-wrap: anywhere; }
+.imi .bubble.me { align-self: flex-end; background: var(--accent); color: #1d1729; }
+.imi .bubble.them { align-self: flex-start; background: #3b2f5c; }
+.imi .bubble.sys { align-self: center; background: transparent; color: var(--muted); font-size: .85rem; }
+.imi .composer { display: flex; gap: 8px; margin-top: 10px; }
+.imi .composer input { flex: 1; font: 1rem system-ui, sans-serif; }
+.imi .scoreboard { display: flex; gap: 16px; flex-wrap: wrap; }
+.imi .spinner { display: inline-block; width: 14px; height: 14px; border: 3px solid var(--muted); border-top-color: var(--accent); border-radius: 50%; animation: imi-spin 1s linear infinite; vertical-align: -2px; margin-right: 8px; }
+@keyframes imi-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .imi .spinner { animation: none; } }
+.imi .verdict-good { color: var(--accent2); } .imi .verdict-bad { color: var(--bad); }
+.imi ul.signals { margin: 6px 0; padding-left: 20px; }
