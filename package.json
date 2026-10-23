@@ -1,0 +1,12 @@
+{
+  "name": "mcon368-cocktail-cabinet",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cocktail Cabinet: static arcade cabinet with flippable human/computer roles",
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"tests/*.test.mjs\"",
+    "test:browser": "node tests/browser/smoke.mjs",
+    "start": "npx http-server . -p 8080 -c-1"
+  }
+}
