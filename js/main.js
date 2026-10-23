@@ -175,8 +175,10 @@ function syncOverlay() {
     );
     els.live.textContent = `${els.oTitle.textContent} ${g.result.message}`;
   }
+  // Delay focusing the primary button on game over so a player still mashing
+  // Space/Enter doesn't instantly restart without seeing the result.
   const first = els.oButtons.querySelector('button');
-  if (first) first.focus({ preventScroll: true });
+  if (first) setTimeout(() => { if (lastOverlayKey === key) first.focus({ preventScroll: true }); }, key.startsWith('over') ? 900 : 0);
 }
 
 function syncHud() {
@@ -239,12 +241,19 @@ document.querySelectorAll('#touch [data-key]').forEach((b) => {
   b.addEventListener('pointercancel', up);
 });
 
-buildMenu();
-const m = location.hash.match(/^#(\w+)\/(normal|flipped)$/);
-if (m && findGame(m[1])) {
-  select(findGame(m[1]));
+// #game/mode deep links (also reacts to the hash changing while the page is open)
+function openFromHash() {
+  const m = location.hash.match(/^#(\w+)\/(normal|flipped)$/);
+  const meta = m && findGame(m[1]);
+  if (!meta) return;
+  if (current && current.meta.id === meta.id && current.mode === m[2]) return;
+  select(meta);
   document.querySelector(`input[name=mode][value=${m[2]}]`).checked = true;
   renderDetails();
-  play(findGame(m[1]), m[2]);
+  play(meta, m[2]);
 }
+window.addEventListener('hashchange', openFromHash);
+
+buildMenu();
+openFromHash();
 requestAnimationFrame(loop);

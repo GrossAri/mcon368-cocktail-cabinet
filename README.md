@@ -9,3 +9,19 @@ What makes the collection different is the ability to **flip the roles**. Instea
 **Wave 2** expands the cabinet with an eighth, original game featuring its own mechanics and rules, while improving the existing collection with sound, refined gameplay, and a better overall experience.
 
 The goal is a fun, accessible arcade collection that gives familiar games an unexpected twist.
+
+## Run it
+
+Static site, nothing to build.
+
+```
+npm start          # serves http://localhost:8080 (uses http-server via npx)
+# or open index.html through any static server (ES modules need http://, not file://)
+npm test           # 124 logic + simulation tests (Node 20+, no dependencies)
+npm run test:browser   # Playwright/Chromium UI smoke test
+```
+
+Deep links: `#snake/flipped`, `#pong/normal`, etc.
+
+See `docs/GAMES.md` (rules, controls, flipped modes), `docs/ARCHITECTURE.md` and `docs/INTEGRATION.md`.
+Deploy: Netlify from GitHub, publish directory `/` (see `netlify.toml`), no build command.
